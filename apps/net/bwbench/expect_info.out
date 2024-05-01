@@ -1,0 +1,270 @@
+make[1]: Entering directory '/home/xsp/Arceos-crates/bwbench'
+ls: cannot access '/home/xsp/Arceos-crates/bwbench/crates': No such file or directory
+ls: cannot access '/home/xsp/Arceos-crates/bwbench/modules': No such file or directory
+    [96;1mRunning[0m on qemu...
+[37mqemu-system-riscv64[0m [90m-m 2G -smp 1 -machine virt -bios default -kernel /home/xsp/Arceos-crates/bwbench/apps/net/bwbench/bwbench_riscv64-qemu-virt.bin -device virtio-net-device,netdev=net0 -netdev user,id=net0,hostfwd=tcp::5555-:5555,hostfwd=udp::5555-:5555 -nographic[0m
+
+OpenSBI v1.0
+   ____                    _____ ____ _____
+  / __ \                  / ____|  _ \_   _|
+ | |  | |_ __   ___ _ __ | (___ | |_) || |
+ | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+ | |__| | |_) |  __/ | | |____) | |_) || |_
+  \____/| .__/ \___|_| |_|_____/|____/_____|
+        | |
+        |_|
+
+Platform Name             : riscv-virtio,qemu
+Platform Features         : medeleg
+Platform HART Count       : 1
+Platform IPI Device       : aclint-mswi
+Platform Timer Device     : aclint-mtimer @ 10000000Hz
+Platform Console Device   : uart8250
+Platform HSM Device       : ---
+Platform Reboot Device    : sifive_test
+Platform Shutdown Device  : sifive_test
+Firmware Base             : 0x80000000
+Firmware Size             : 252 KB
+Runtime SBI Version       : 0.3
+
+Domain0 Name              : root
+Domain0 Boot HART         : 0
+Domain0 HARTs             : 0*
+Domain0 Region00          : 0x0000000002000000-0x000000000200ffff (I)
+Domain0 Region01          : 0x0000000080000000-0x000000008003ffff ()
+Domain0 Region02          : 0x0000000000000000-0xffffffffffffffff (R,W,X)
+Domain0 Next Address      : 0x0000000080200000
+Domain0 Next Arg1         : 0x00000000bf000000
+Domain0 Next Mode         : S-mode
+Domain0 SysReset          : yes
+
+Boot HART ID              : 0
+Boot HART Domain          : root
+Boot HART ISA             : rv64imafdcsuh
+Boot HART Features        : scounteren,mcounteren,time
+Boot HART PMP Count       : 16
+Boot HART PMP Granularity : 4
+Boot HART PMP Address Bits: 54
+Boot HART MHPM Count      : 0
+Boot HART MIDELEG         : 0x0000000000001666
+Boot HART MEDELEG         : 0x0000000000f0b509
+
+       d8888                            .d88888b.   .d8888b.
+      d88888                           d88P" "Y88b d88P  Y88b
+     d88P888                           888     888 Y88b.
+    d88P 888 888d888  .d8888b  .d88b.  888     888  "Y888b.
+   d88P  888 888P"   d88P"    d8P  Y8b 888     888     "Y88b.
+  d88P   888 888     888      88888888 888     888       "888
+ d8888888888 888     Y88b.    Y8b.     Y88b. .d88P Y88b  d88P
+d88P     888 888      "Y8888P  "Y8888   "Y88888P"   "Y8888P"
+
+arch = riscv64
+platform = riscv64-qemu-virt
+target = riscv64gc-unknown-none-elf
+smp = 1
+build_mode = release
+log_level = info
+
+[37m[  0.174289 0 axruntime:130] [32mLogging is enabled.[m
+[m[37m[  0.179719 0 axruntime:131] [32mPrimary CPU 0 started, dtb = 0xbf000000.[m
+[m[37m[  0.182465 0 axruntime:132] [32mPlatform name riscv64_qemu_virt.[m
+[m[37m[  0.184802 0 axruntime:134] [32mFound physcial memory regions:[m
+[m[37m[  0.187939 0 axruntime:136] [32m  [PA:0x80200000, PA:0x8020d000) .text (READ | EXECUTE | RESERVED)[m
+[m[37m[  0.191424 0 axruntime:136] [32m  [PA:0x8020d000, PA:0x80212000) .rodata (READ | RESERVED)[m
+[m[37m[  0.193679 0 axruntime:136] [32m  [PA:0x80212000, PA:0x80215000) .data .tdata .tbss .percpu (READ | WRITE | RESERVED)[m
+[m[37m[  0.196500 0 axruntime:136] [32m  [PA:0x80215000, PA:0x80255000) boot stack (READ | WRITE | RESERVED)[m
+[m[37m[  0.198982 0 axruntime:136] [32m  [PA:0x80255000, PA:0x8027b000) .bss (READ | WRITE | RESERVED)[m
+[m[37m[  0.201465 0 axruntime:136] [32m  [PA:0x8027b000, PA:0x88000000) free memory (READ | WRITE | FREE)[m
+[m[37m[  0.204249 0 axruntime:136] [32m  [PA:0xc000000, PA:0xc210000) mmio (READ | WRITE | DEVICE | RESERVED)[m
+[m[37m[  0.206808 0 axruntime:136] [32m  [PA:0x10000000, PA:0x10001000) mmio (READ | WRITE | DEVICE | RESERVED)[m
+[m[37m[  0.209358 0 axruntime:136] [32m  [PA:0x10001000, PA:0x10009000) mmio (READ | WRITE | DEVICE | RESERVED)[m
+[m[37m[  0.212132 0 axruntime:136] [32m  [PA:0x30000000, PA:0x40000000) mmio (READ | WRITE | DEVICE | RESERVED)[m
+[m[37m[  0.214928 0 axruntime:136] [32m  [PA:0x40000000, PA:0x80000000) mmio (READ | WRITE | DEVICE | RESERVED)[m
+[m[37m[  0.217823 0 axruntime:218] [32mInitialize global memory allocator...[m
+[m[37m[  0.219946 0 axruntime:219] [32m  use TLSF allocator.[m
+[m[37m[  0.223651 0 axruntime:231] [32malloc region size: 7D85000[m
+[m[37m[  0.231538 0 axruntime:150] [32mInitialize kernel page table...[m
+[m[37m[  0.242308 0 axruntime:154] [32mInitialize platform devices...[m
+[m[37m[  0.244425 0 axdriver:152] [32mInitialize device drivers...[m
+[m[37m[  0.246355 0 axdriver:153] [32m  device model: static[m
+[m[37m[  0.249085 0 virtio_drivers::device::net::dev_raw:30] [32mnegotiated_features Features(MAC | STATUS | RING_EVENT_IDX)[m
+[m[37m[  0.263302 0 axdriver::bus::mmio:11] [32mregistered a new Net device at [PA:0x10008000, PA:0x10009000): "virtio-net"[m
+[m[37m[  0.268427 0 axnet:46] [32mInitialize network subsystem...[m
+[m[37m[  0.270467 0 axnet:49] [32m  use NIC 0: "virtio-net"[m
+[m[37m[  0.274722 0 axnet::smoltcp_impl:368] [32mcreated net interface "eth0":[m
+[m[37m[  0.277037 0 axnet::smoltcp_impl:369] [32m  ether:    52-54-00-12-34-56[m
+[m[37m[  0.280377 0 axnet::smoltcp_impl:370] [32m  ip:       10.0.2.15/24[m
+[m[37m[  0.282832 0 axnet::smoltcp_impl:371] [32m  gateway:  10.0.2.2[m
+[m[37m[  0.288489 0 axruntime:196] [32mPrimary CPU 0 init OK.[m
+[mBenchmarking bandwidth...
+[37m[  1.292914 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.054GBytes, Bandwidth: 0.434Gbits/sec.[m
+[m[37m[  2.291445 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.059GBytes, Bandwidth: 0.473Gbits/sec.[m
+[m[37m[  3.291461 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.058GBytes, Bandwidth: 0.467Gbits/sec.[m
+[m[37m[  4.291478 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.061GBytes, Bandwidth: 0.490Gbits/sec.[m
+[m[37m[  5.291499 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.057GBytes, Bandwidth: 0.458Gbits/sec.[m
+[m[37m[  6.291515 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.064GBytes, Bandwidth: 0.518Gbits/sec.[m
+[m[37m[  7.292277 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.059GBytes, Bandwidth: 0.472Gbits/sec.[m
+[m[37m[  8.292308 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.038GBytes, Bandwidth: 0.311Gbits/sec.[m
+[m[37m[  9.292295 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.058GBytes, Bandwidth: 0.464Gbits/sec.[m
+[m[37m[ 10.292332 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.065GBytes, Bandwidth: 0.523Gbits/sec.[m
+[m[37m[ 11.292642 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.066GBytes, Bandwidth: 0.532Gbits/sec.[m
+[m[37m[ 12.292667 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.062GBytes, Bandwidth: 0.501Gbits/sec.[m
+[m[37m[ 13.292701 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.058GBytes, Bandwidth: 0.470Gbits/sec.[m
+[m[37m[ 14.292771 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.053GBytes, Bandwidth: 0.427Gbits/sec.[m
+[m[37m[ 15.339629 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.056GBytes, Bandwidth: 0.454Gbits/sec.[m
+[m[37m[ 16.339600 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.059GBytes, Bandwidth: 0.477Gbits/sec.[m
+[m[37m[ 17.339634 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.042GBytes, Bandwidth: 0.341Gbits/sec.[m
+[m[37m[ 18.339639 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.041GBytes, Bandwidth: 0.332Gbits/sec.[m
+[m[37m[ 19.339642 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.067GBytes, Bandwidth: 0.539Gbits/sec.[m
+[m[37m[ 20.339669 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.054GBytes, Bandwidth: 0.437Gbits/sec.[m
+[m[37m[ 21.339706 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.072GBytes, Bandwidth: 0.581Gbits/sec.[m
+[m[37m[ 22.339709 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.067GBytes, Bandwidth: 0.541Gbits/sec.[m
+[m[37m[ 23.339726 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.071GBytes, Bandwidth: 0.574Gbits/sec.[m
+[m[37m[ 24.339743 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.056GBytes, Bandwidth: 0.453Gbits/sec.[m
+[m[37m[ 25.339777 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.073GBytes, Bandwidth: 0.588Gbits/sec.[m
+[m[37m[ 26.339797 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.064GBytes, Bandwidth: 0.512Gbits/sec.[m
+[m[37m[ 27.339813 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.069GBytes, Bandwidth: 0.556Gbits/sec.[m
+[m[37m[ 28.339876 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.046GBytes, Bandwidth: 0.369Gbits/sec.[m
+[m[37m[ 29.339904 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.072GBytes, Bandwidth: 0.576Gbits/sec.[m
+[m[37m[ 30.339926 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.058GBytes, Bandwidth: 0.468Gbits/sec.[m
+[m[37m[ 31.339910 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.064GBytes, Bandwidth: 0.517Gbits/sec.[m
+[m[37m[ 32.339939 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.048GBytes, Bandwidth: 0.387Gbits/sec.[m
+[m[37m[ 33.339952 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.058GBytes, Bandwidth: 0.469Gbits/sec.[m
+[m[37m[ 34.339995 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.057GBytes, Bandwidth: 0.457Gbits/sec.[m
+[m[37m[ 35.339999 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.070GBytes, Bandwidth: 0.560Gbits/sec.[m
+[m[37m[ 36.340009 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.062GBytes, Bandwidth: 0.498Gbits/sec.[m
+[m[37m[ 37.340008 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.050GBytes, Bandwidth: 0.400Gbits/sec.[m
+[m[37m[ 38.340020 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.049GBytes, Bandwidth: 0.396Gbits/sec.[m
+[m[37m[ 39.340022 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.063GBytes, Bandwidth: 0.504Gbits/sec.[m
+[m[37m[ 40.363404 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.065GBytes, Bandwidth: 0.522Gbits/sec.[m
+[m[37m[ 41.363430 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.062GBytes, Bandwidth: 0.503Gbits/sec.[m
+[m[37m[ 42.363462 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.072GBytes, Bandwidth: 0.578Gbits/sec.[m
+[m[37m[ 43.363463 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.053GBytes, Bandwidth: 0.425Gbits/sec.[m
+[m[37m[ 44.372081 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.043GBytes, Bandwidth: 0.346Gbits/sec.[m
+[m[37m[ 45.372044 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.045GBytes, Bandwidth: 0.360Gbits/sec.[m
+[m[37m[ 46.372049 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.058GBytes, Bandwidth: 0.465Gbits/sec.[m
+[m[37m[ 47.372056 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.063GBytes, Bandwidth: 0.508Gbits/sec.[m
+[m[37m[ 48.372067 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.069GBytes, Bandwidth: 0.557Gbits/sec.[m
+[m[37m[ 49.372084 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.042GBytes, Bandwidth: 0.336Gbits/sec.[m
+[m[37m[ 50.372094 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.066GBytes, Bandwidth: 0.530Gbits/sec.[m
+[m[37m[ 51.372115 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.046GBytes, Bandwidth: 0.370Gbits/sec.[m
+[m[37m[ 52.372122 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.073GBytes, Bandwidth: 0.587Gbits/sec.[m
+[m[37m[ 53.372126 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.060GBytes, Bandwidth: 0.480Gbits/sec.[m
+[m[37m[ 54.372159 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.064GBytes, Bandwidth: 0.514Gbits/sec.[m
+[m[37m[ 55.372158 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.058GBytes, Bandwidth: 0.470Gbits/sec.[m
+[m[37m[ 56.372196 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.072GBytes, Bandwidth: 0.577Gbits/sec.[m
+[m[37m[ 57.372232 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.056GBytes, Bandwidth: 0.451Gbits/sec.[m
+[m[37m[ 58.372251 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.058GBytes, Bandwidth: 0.466Gbits/sec.[m
+[m[37m[ 59.372253 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.057GBytes, Bandwidth: 0.461Gbits/sec.[m
+[m[37m[ 60.372269 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.045GBytes, Bandwidth: 0.364Gbits/sec.[m
+[m[37m[ 61.372296 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.054GBytes, Bandwidth: 0.436Gbits/sec.[m
+[m[37m[ 62.372300 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.067GBytes, Bandwidth: 0.537Gbits/sec.[m
+[m[37m[ 63.372300 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.066GBytes, Bandwidth: 0.535Gbits/sec.[m
+[m[37m[ 64.372341 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.071GBytes, Bandwidth: 0.568Gbits/sec.[m
+[m[37m[ 65.372696 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.052GBytes, Bandwidth: 0.422Gbits/sec.[m
+[m[37m[ 66.372693 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.065GBytes, Bandwidth: 0.521Gbits/sec.[m
+[m[37m[ 67.372703 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.054GBytes, Bandwidth: 0.434Gbits/sec.[m
+[m[37m[ 68.372707 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.067GBytes, Bandwidth: 0.537Gbits/sec.[m
+[m[37m[ 69.372765 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.065GBytes, Bandwidth: 0.527Gbits/sec.[m
+[m[37m[ 70.372801 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.068GBytes, Bandwidth: 0.549Gbits/sec.[m
+[m[37m[ 71.372809 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.060GBytes, Bandwidth: 0.480Gbits/sec.[m
+[m[37m[ 72.372829 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.065GBytes, Bandwidth: 0.524Gbits/sec.[m
+[m[37m[ 73.372857 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.074GBytes, Bandwidth: 0.594Gbits/sec.[m
+[m[37m[ 74.372870 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.057GBytes, Bandwidth: 0.459Gbits/sec.[m
+[m[37m[ 75.372877 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.053GBytes, Bandwidth: 0.430Gbits/sec.[m
+[m[37m[ 76.372874 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.059GBytes, Bandwidth: 0.476Gbits/sec.[m
+[m[37m[ 77.372891 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.063GBytes, Bandwidth: 0.505Gbits/sec.[m
+[m[37m[ 78.372933 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.070GBytes, Bandwidth: 0.561Gbits/sec.[m
+[m[37m[ 79.372947 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.062GBytes, Bandwidth: 0.503Gbits/sec.[m
+[m[37m[ 80.372970 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.066GBytes, Bandwidth: 0.531Gbits/sec.[m
+[m[37m[ 81.372967 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.067GBytes, Bandwidth: 0.543Gbits/sec.[m
+[m[37m[ 82.373004 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.067GBytes, Bandwidth: 0.537Gbits/sec.[m
+[m[37m[ 83.373004 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.067GBytes, Bandwidth: 0.538Gbits/sec.[m
+[m[37m[ 84.373012 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.046GBytes, Bandwidth: 0.372Gbits/sec.[m
+[m[37m[ 85.373023 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.061GBytes, Bandwidth: 0.488Gbits/sec.[m
+[m[37m[ 86.373029 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.065GBytes, Bandwidth: 0.521Gbits/sec.[m
+[m[37m[ 87.373031 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.063GBytes, Bandwidth: 0.506Gbits/sec.[m
+[m[37m[ 88.373031 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.062GBytes, Bandwidth: 0.500Gbits/sec.[m
+[m[37m[ 89.373047 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.052GBytes, Bandwidth: 0.422Gbits/sec.[m
+[m[37m[ 90.373052 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.062GBytes, Bandwidth: 0.496Gbits/sec.[m
+[m[37m[ 91.373061 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.058GBytes, Bandwidth: 0.466Gbits/sec.[m
+[m[37m[ 92.373101 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.063GBytes, Bandwidth: 0.508Gbits/sec.[m
+[m[37m[ 93.373118 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.032GBytes, Bandwidth: 0.263Gbits/sec.[m
+[m[37m[ 94.373128 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.041GBytes, Bandwidth: 0.330Gbits/sec.[m
+[m[37m[ 95.373157 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.046GBytes, Bandwidth: 0.372Gbits/sec.[m
+[m[37m[ 96.373182 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.067GBytes, Bandwidth: 0.540Gbits/sec.[m
+[m[37m[ 97.373250 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.046GBytes, Bandwidth: 0.369Gbits/sec.[m
+[m[37m[ 98.373281 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.061GBytes, Bandwidth: 0.491Gbits/sec.[m
+[m[37m[ 99.373290 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.062GBytes, Bandwidth: 0.502Gbits/sec.[m
+[m[37m[100.373328 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.065GBytes, Bandwidth: 0.524Gbits/sec.[m
+[m[37m[101.373388 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.054GBytes, Bandwidth: 0.433Gbits/sec.[m
+[m[37m[102.373375 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.061GBytes, Bandwidth: 0.488Gbits/sec.[m
+[m[37m[103.373392 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.047GBytes, Bandwidth: 0.382Gbits/sec.[m
+[m[37m[104.373416 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.052GBytes, Bandwidth: 0.419Gbits/sec.[m
+[m[37m[105.373458 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.039GBytes, Bandwidth: 0.318Gbits/sec.[m
+[m[37m[106.373491 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.046GBytes, Bandwidth: 0.372Gbits/sec.[m
+[m[37m[107.373509 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.069GBytes, Bandwidth: 0.554Gbits/sec.[m
+[m[37m[108.373518 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.060GBytes, Bandwidth: 0.485Gbits/sec.[m
+[m[37m[109.373521 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.065GBytes, Bandwidth: 0.526Gbits/sec.[m
+[m[37m[110.373549 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.060GBytes, Bandwidth: 0.481Gbits/sec.[m
+[m[37m[111.373580 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.065GBytes, Bandwidth: 0.524Gbits/sec.[m
+[m[37m[112.373595 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.049GBytes, Bandwidth: 0.394Gbits/sec.[m
+[m[37m[113.373652 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.067GBytes, Bandwidth: 0.541Gbits/sec.[m
+[m[37m[114.373715 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.060GBytes, Bandwidth: 0.482Gbits/sec.[m
+[m[37m[115.373711 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.055GBytes, Bandwidth: 0.443Gbits/sec.[m
+[m[37m[116.373712 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.045GBytes, Bandwidth: 0.366Gbits/sec.[m
+[m[37m[117.373743 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.045GBytes, Bandwidth: 0.367Gbits/sec.[m
+[m[37m[118.373756 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.057GBytes, Bandwidth: 0.462Gbits/sec.[m
+[m[37m[119.373817 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.066GBytes, Bandwidth: 0.535Gbits/sec.[m
+[m[37m[120.373868 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.054GBytes, Bandwidth: 0.438Gbits/sec.[m
+[m[37m[121.373864 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.070GBytes, Bandwidth: 0.564Gbits/sec.[m
+[m[37m[122.373893 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.064GBytes, Bandwidth: 0.518Gbits/sec.[m
+[m[37m[123.373906 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.051GBytes, Bandwidth: 0.413Gbits/sec.[m
+[m[37m[124.373968 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.053GBytes, Bandwidth: 0.426Gbits/sec.[m
+[m[37m[125.373992 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.066GBytes, Bandwidth: 0.533Gbits/sec.[m
+[m[37m[126.374001 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.062GBytes, Bandwidth: 0.503Gbits/sec.[m
+[m[37m[127.374015 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.067GBytes, Bandwidth: 0.539Gbits/sec.[m
+[m[37m[128.374422 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.038GBytes, Bandwidth: 0.311Gbits/sec.[m
+[m[37m[129.374411 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.063GBytes, Bandwidth: 0.508Gbits/sec.[m
+[m[37m[130.374474 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.037GBytes, Bandwidth: 0.302Gbits/sec.[m
+[m[37m[131.374485 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.055GBytes, Bandwidth: 0.447Gbits/sec.[m
+[m[37m[132.374519 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.059GBytes, Bandwidth: 0.475Gbits/sec.[m
+[m[37m[133.374531 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.057GBytes, Bandwidth: 0.456Gbits/sec.[m
+[m[37m[134.374545 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.058GBytes, Bandwidth: 0.469Gbits/sec.[m
+[m[37m[135.374558 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.069GBytes, Bandwidth: 0.552Gbits/sec.[m
+[m[37m[136.374577 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.054GBytes, Bandwidth: 0.434Gbits/sec.[m
+[m[37m[137.374579 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.058GBytes, Bandwidth: 0.466Gbits/sec.[m
+[m[37m[138.374592 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.067GBytes, Bandwidth: 0.540Gbits/sec.[m
+[m[37m[139.374616 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.058GBytes, Bandwidth: 0.465Gbits/sec.[m
+[m[37m[140.374629 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.062GBytes, Bandwidth: 0.499Gbits/sec.[m
+[m[37m[141.374625 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.073GBytes, Bandwidth: 0.586Gbits/sec.[m
+[m[37m[142.374629 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.066GBytes, Bandwidth: 0.530Gbits/sec.[m
+[m[37m[143.374694 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.057GBytes, Bandwidth: 0.457Gbits/sec.[m
+[m[37m[144.374722 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.048GBytes, Bandwidth: 0.385Gbits/sec.[m
+[m[37m[145.374725 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.054GBytes, Bandwidth: 0.436Gbits/sec.[m
+[m[37m[146.374729 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.049GBytes, Bandwidth: 0.399Gbits/sec.[m
+[m[37m[147.374739 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.061GBytes, Bandwidth: 0.493Gbits/sec.[m
+[m[37m[148.374741 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.052GBytes, Bandwidth: 0.421Gbits/sec.[m
+[m[37m[149.374777 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.050GBytes, Bandwidth: 0.402Gbits/sec.[m
+[m[37m[150.374798 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.062GBytes, Bandwidth: 0.496Gbits/sec.[m
+[m[37m[151.374816 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.069GBytes, Bandwidth: 0.559Gbits/sec.[m
+[m[37m[152.374882 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.066GBytes, Bandwidth: 0.528Gbits/sec.[m
+[m[37m[153.374904 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.067GBytes, Bandwidth: 0.541Gbits/sec.[m
+[m[37m[154.374909 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.062GBytes, Bandwidth: 0.498Gbits/sec.[m
+[m[37m[155.374920 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.043GBytes, Bandwidth: 0.350Gbits/sec.[m
+[m[37m[156.374920 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.064GBytes, Bandwidth: 0.513Gbits/sec.[m
+[m[37m[157.374922 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.066GBytes, Bandwidth: 0.530Gbits/sec.[m
+[m[37m[158.374922 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.061GBytes, Bandwidth: 0.493Gbits/sec.[m
+[m[37m[159.374924 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.055GBytes, Bandwidth: 0.447Gbits/sec.[m
+[m[37m[160.374954 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.058GBytes, Bandwidth: 0.471Gbits/sec.[m
+[m[37m[161.374953 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.055GBytes, Bandwidth: 0.447Gbits/sec.[m
+[m[37m[162.375008 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.056GBytes, Bandwidth: 0.451Gbits/sec.[m
+[m[37m[163.375041 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.055GBytes, Bandwidth: 0.443Gbits/sec.[m
+[m[37m[164.375076 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.039GBytes, Bandwidth: 0.315Gbits/sec.[m
+[m[37m[165.375082 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.055GBytes, Bandwidth: 0.441Gbits/sec.[m
+[m[37m[166.375110 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.057GBytes, Bandwidth: 0.463Gbits/sec.[m
+[m[37m[167.375119 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.045GBytes, Bandwidth: 0.365Gbits/sec.[m
+[m[37m[168.378966 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.064GBytes, Bandwidth: 0.517Gbits/sec.[m
+[m[37m[169.378944 0 axnet::smoltcp_impl::bench:36] [32mTransmit: 0.039GBytes, Bandwidth: 0.315Gbits/sec.[m
+[m[37m[170.079429 0 axhal::platform::riscv64_qemu_virt::misc:3] [32mShutting down...[m
+[mmake[1]: Leaving directory '/home/xsp/Arceos-crates/bwbench'
