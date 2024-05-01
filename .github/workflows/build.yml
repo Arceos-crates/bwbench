@@ -1,0 +1,45 @@
+name: Build CI
+
+on: [push, pull_request]
+
+jobs:
+  clippy:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix: 
+        rust-toolchain: [nightly, nightly-2024-01-19]
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions-rs/toolchain@v1
+      with:
+        profile: minimal
+        toolchain: ${{ matrix.rust-toolchain }}
+        components: rust-src, clippy, rustfmt
+    - name: Clippy for the default target
+      run: CURRENT_DIR=`pwd` make clippy
+    - name: Check code format
+      run: CURRENT_DIR=`pwd` cargo fmt --all -- --check
+  
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        arch: [riscv64]
+        rust-toolchain: [nightly, nightly-2024-01-19]
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions-rs/toolchain@v1
+      with:
+        profile: minimal
+        toolchain: ${{ matrix.rust-toolchain }}
+        components: rust-src
+    - uses: actions-rs/install@v0.1
+      with:
+        crate: cargo-binutils
+        version: latest
+        use-tool-cache: true
+    - name: Build net/bwbench
+      run: CURRENT_DIR=`pwd` make ARCH=${{ matrix.arch }} A=apps/net/bwbench
